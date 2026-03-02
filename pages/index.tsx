@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Happy First Day of School Day 👑</title>
+        <title>Happy First Day of School 👑</title>
         <meta
           name="description"
           content="A special surprise for First Day of School - A delightful interactive experience with love letters, music, and memories"
@@ -70,10 +70,10 @@ export default function Home() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Happy National Princess Day 👑" />
+        <meta property="og:title" content="Happy First Day of School 👑" />
         <meta
           property="og:description"
-          content="A special surprise for National Princess Day - A delightful interactive experience with love letters, music, and memories"
+          content="A special surprise for First Day of School - A delightful interactive experience with love letters, music, and memories"
         />
         <meta property="og:image" content="/og-image.jpg" />
         <meta
@@ -86,7 +86,7 @@ export default function Home() {
         <meta name="twitter:title" content="Happy First Day of School 👑" />
         <meta
           name="twitter:description"
-          content="A special surprise for First Day of School Day"
+          content="A special surprise for First Day of School"
         />
         <meta name="twitter:image" content="/og-image.jpg" />
 

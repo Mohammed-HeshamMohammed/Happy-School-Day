@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { messageData } from '@/data/message';
 import { showToast } from '@/lib/toast';
 import Playlist from '@/components/Playlist';
 import FlipCards from '@/components/FlipCards';
@@ -18,10 +17,26 @@ export default function MessageCard({
   isRevealed,
   onRestart,
 }: MessageCardProps) {
+  const message = {
+    title: 'Happy First Day of School 👑',
+    subtitle: 'To my favorite Person — today, and every day.',
+    header: 'My Dearest Rumeysa',
+    body: `Let me tell you how, in a sky crowded with stars, you remain the only moon I see; how, among all the billions of faces in this world, it’s only your eyes I ever search for. Let me tell you that you are the fire I reach for without the fear of being burned, the warmth I would choose even knowing the cost.
+I know we may never be together, but please allow me — allow me to love you this much, to love you in ways you may have never heard of, and perhaps in ways never felt.`,
+    footer: 'I love you, Rumeysa.',
+    cta: 'Open your gift ✨',
+    toast: {
+      copied: 'Message copied! Send it with a heart 💌',
+      error: "Couldn't copy — try again",
+      shared: 'Shared! 💕',
+    },
+  };
+
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [showFlipCards, setShowFlipCards] = useState(false);
+
   const [typewriterComplete, setTypewriterComplete] = useState({
     signature: false,
     love: false,
@@ -70,10 +85,12 @@ export default function MessageCard({
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(messageData.body);
-      showToast.success(messageData.toast.copied);
+      await navigator.clipboard.writeText(
+        [message.header, '', message.body, '', message.footer].join('\n')
+      );
+      showToast.success(message.toast.copied);
     } catch (err) {
-      showToast.error(messageData.toast.error);
+      showToast.error(message.toast.error);
     }
   };
 
@@ -128,10 +145,10 @@ export default function MessageCard({
         <div className="flex items-center justify-center gap-2 mb-6 animate-slideDown">
           <div className="text-center">
             <h2 className="text-[#f04299] text-lg sm:text-xl font-bold leading-tight">
-              {messageData.title}
+              {message.title}
             </h2>
             <div className="text-xs text-[#9a4c73] mt-1">
-              {messageData.subtitle}
+              {message.subtitle}
             </div>
           </div>
         </div>
@@ -184,7 +201,7 @@ export default function MessageCard({
 
                   <div className="text-center mt-6">
                     <p className="text-sm text-[#9a4c73] mb-2">
-                      {messageData.cta}
+                      {message.cta}
                     </p>
                     <div className="inline-block px-4 py-2 bg-pink-50 rounded-full text-xs font-medium text-[#f04299] border border-pink-200 animate-pulse">
                       Special Delivery 💌
@@ -277,15 +294,29 @@ export default function MessageCard({
                                 💝
                               </div>
                               <span className="text-sm font-semibold text-[#9a4c73]">
-                                {messageData.title}
+                                {message.title}
                               </span>
                             </div>
                           </div>
 
                           {/* Letter body */}
                           <div className="handwriting text-sm sm:text-base leading-relaxed text-[#1b0d14] pb-20 pt-6">
-                            <div className="mb-4 text-[#f04299] font-medium">
-                              {messageData.body}
+                            <div className="mb-4 text-[#f04299] font-medium text-left">
+                              {message.header}
+                            </div>
+                            <div
+                              className="mb-4 font-medium text-black"
+                              style={{ fontFamily: "'Dancing Script', cursive" }}
+                            >
+                              {message.body.split('\n').map((line, idx) => (
+                                <span key={idx}>
+                                  {line}
+                                  <br />
+                                </span>
+                              ))}
+                            </div>
+                            <div className="mt-6 text-center text-[#f04299] font-medium">
+                              {message.footer}
                             </div>
                             <div className="mt-8 ml-auto w-fit">
                               <div className="font-medium text-[#f04299]">
@@ -536,7 +567,7 @@ export default function MessageCard({
                               className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#f04299] text-white font-semibold shadow-md transition-all transform hover:scale-105 active:scale-95 hover:shadow-pink-300/50 focus:outline-none focus:ring-4 focus:ring-pink-300 cursor-pointer"
                               aria-label="Continue to see more"
                             >
-                              {messageData.cta}
+                              {message.cta}
                             </button>
                           </div>
                         )}
