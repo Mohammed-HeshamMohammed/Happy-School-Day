@@ -2,9 +2,9 @@
 
 <div align="center">
 
-## 🌐 **[👉 VIEW LIVE SITE 👈](https://happy-princess-dayy.netlify.app/)**
+## 🌐 **[👉 VIEW LIVE SITE 👈](https://happy-school-day.vercel.app)**
 
-[![Live Site](https://img.shields.io/badge/🌐_Live_Site-happy--princess--dayy.netlify.app-FF69B4?style=for-the-badge)](https://happy-princess-dayy.netlify.app/)
+[![Live Site](https://img.shields.io/badge/🌐_Live_Site-happy--school--day.vercel.app-FF69B4?style=for-the-badge)](https://happy-school-day.vercel.app)
 
 </div>
 
@@ -102,9 +102,9 @@ Add your own images to `public/assets/` and update the image paths in the respec
 
 ### 🌐 Live Site
 
-**👉 [View Live Site](https://happy-princess-dayy.netlify.app/) 👈**
+**👉 [View Live Site](https://happy-school-day.vercel.app) 👈**
 
-The site is currently deployed on Netlify and accessible at the URL above.
+The site is currently deployed on Vercel and accessible at the URL above.
 
 ### Deploy to Netlify
 
